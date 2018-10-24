@@ -1,0 +1,6 @@
+com\mycompany\models\Paises.class
+com\mycompany\proyectoweb\Configuracion.class
+com\mycompany\proyectoweb\PaisesServicio.class
+com\mycompany\dao\connect\pgConnect.class
+com\mycompany\proyectoweb\Test.class
+com\mycompany\dao\PaisesDao.class
