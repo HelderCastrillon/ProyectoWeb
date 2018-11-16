@@ -7,6 +7,7 @@ package com.mycompany.proyectoweb;
 
 import com.mycompany.dao.PaisesDao;
 import com.mycompany.models.Paises;
+import java.lang.annotation.Annotation;
 import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -29,7 +30,11 @@ public class PaisesServicio {
     @Produces(MediaType.APPLICATION_JSON)
     public  Response getPaises(){
         List<Paises> lista= PaisesDao.getPaises();
-        return Response.ok(lista).build();
+        return Response.ok(lista)
+                 //.entity(podcastById, detailed ? new Annotation[]{PodcastDetailedView.Factory.get()} : new Annotation[0])
+		.header("Access-Control-Allow-Origin", "*")
+		.header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT")
+		.allow("OPTIONS").build();
       
   }
    
@@ -38,7 +43,11 @@ public class PaisesServicio {
     @Produces(MediaType.APPLICATION_JSON)
     public  Response findPaises(@PathParam("name") String name ){
         List<Paises> lista= PaisesDao.findPaises(name);
-        return Response.ok(lista).build();
+        return Response.ok(lista)
+                  //.entity(podcastById, detailed ? new Annotation[]{PodcastDetailedView.Factory.get()} : new Annotation[0])
+		.header("Access-Control-Allow-Origin", "*")
+		.header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT")
+		.allow("OPTIONS").build();
       
   }
     
